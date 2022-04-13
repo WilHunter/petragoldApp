@@ -2,7 +2,7 @@
   "name": "petragolbank",
   "version": "0.0.1",
   "description": "Carteira digital do grupo PetraGold",
-  "productName": " PetraGold Bank - BackOffice",
+  "productName": " PetraGold Bank",
   "author": "GoldIT",
   "private": true,
   "scripts": {

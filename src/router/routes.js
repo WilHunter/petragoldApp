@@ -4,10 +4,11 @@ const routes = [
     path: '/',
     component: () => import('layouts/MainLayout.vue'),
     children: [
-      { path: 'Index', component: () => import('pages/IndexPage.vue') },
       { path: '', component: () => import('pages/Abertura.vue') },
+      { path: 'Index', component: () => import('pages/IndexPage.vue') },
       { path: 'Login', component: () => import('pages/Login.vue') },
-      { path: 'Cadastro', component: () => import('pages/Cadastro.vue') }
+      { path: 'Esqueci', component: () => import('pages/Esqueci.vue') },
+      { path: 'Cadastro', component: () => import('pages/Cadastro.vue') },
     ]
   },
 
