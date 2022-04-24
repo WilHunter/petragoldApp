@@ -1,9 +1,9 @@
 <template>
   <q-page class="corpo flex flex-center" style="width: 100%; height: 100vh">
     <div class="row flex flex-center">
-      <div class="col text-center">
+      <!--<div class="col text-center">
         <img src="../assets/logoazul.png" alt="" />
-      </div>
+      </div>-->
     </div>
     <div class="row flex flex-center">
       <q-carousel
@@ -14,7 +14,7 @@
       >
         <q-carousel-slide :name="1">
           <q-card
-            class="col-12 q-pa-xl minicard"
+            class="col-12 q-pa-xl"
             flat
             style="background-color: transparent; width: 23em"
           >
@@ -61,7 +61,7 @@
         </q-carousel-slide>
         <q-carousel-slide :name="2">
           <q-card
-            class="col-12 q-pa-xl minicard"
+            class="col-12 q-pa-xl"
             flat
             style="background-color: transparent; width: 23em"
           >
@@ -120,9 +120,7 @@ export default {
 
 <style scoped>
 .corpo {
-  background-image: url("../assets/bege.png");
-  background-repeat: no-repeat;
-  background-color: black;
+  background-color: #DCD6C2;
   font-family: Roboto !important;
 }
 .minicard {

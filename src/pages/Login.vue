@@ -62,6 +62,7 @@
             no-caps
             class="full-width"
             style="color: #b3b3b3; background-color: #001f40"
+            @click="logar()"
           ></q-btn>
         </div>
         <div class="col q-mt-xl">
@@ -87,6 +88,7 @@
 
 <script>
 import { ref } from "vue";
+import { mapActions } from 'vuex';
 export default {
   name: "Login",
   setup() {
@@ -96,6 +98,16 @@ export default {
       isPwd: ref(true),
     };
   },
+  methods:{
+    ...mapActions(`comunications`,[`login`]),
+    logar(){
+      const dados = {
+        user: this.CNPJ,
+        password: this.password
+      }
+      this.login(dados)
+    }
+  }
 };
 </script>
 <style scoped>

@@ -1,10 +1,10 @@
 <template>
   <q-page class="corpo flex flex-center" style="width: 100%; height: 100vh">
     <div class="row flex flex-center" style="flex-direction: column">
-      <div class="col text-center q-mt-xl">
+      <!--<div class="col text-center q-mt-xl">
         <img src="../assets/logoazul.png" alt="" />
-      </div>
-      <div class="col q-mt-xl">
+      </div>-->
+      <div class="col q-mt-sm">
         <q-carousel
           class="rounded-borders q-ma-md"
           v-model="slide"
@@ -13,7 +13,8 @@
         >
           <q-carousel-slide :name="1">
             <q-card
-              class="q-pa-md maxcard"
+              flat
+              class="q-pa-md"
               style="
                 min-height: 590px;
                 border-radius: 30px;
@@ -78,7 +79,8 @@
           </q-carousel-slide>
           <q-carousel-slide :name="2">
             <q-card
-              class="q-pa-md maxcard"
+              flat
+              class="q-pa-md"
               style="
                 min-height: 590px;
                 border-radius: 30px;
@@ -150,7 +152,8 @@
           </q-carousel-slide>
           <q-carousel-slide :name="3">
             <q-card
-              class="q-pa-md maxcard"
+              flat
+              class="q-pa-md"
               style="
                 min-height: 590px;
                 border-radius: 30px;
@@ -240,7 +243,8 @@
           </q-carousel-slide>
           <q-carousel-slide :name="4">
             <q-card
-              class="q-pa-md maxcard"
+              flat
+              class="q-pa-sm"
               style="
                 min-height: 590px;
                 border-radius: 30px;
@@ -356,7 +360,7 @@
           </q-carousel-slide>
           <q-carousel-slide :name="5">
             <q-card
-              class="col-12 q-pa-xl q-mt-xl minicard"
+              class="col-12 q-pa-xl q-mt-xl"
               flat
               style="background-color: transparent; width: 23em"
             >
@@ -487,9 +491,7 @@ export default {
 </script>
 <style scoped>
 .corpo {
-  background-image: url("../assets/bege.png");
-  background-repeat: no-repeat;
-  background-color: black;
+  background-color: #DCD6C2;
   font-family: Roboto !important;
 }
 .minicard {
