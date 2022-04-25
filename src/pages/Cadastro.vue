@@ -1,24 +1,23 @@
 <template>
-  <q-page class="corpo flex flex-center" style="width: 100%; height: 100vh">
-    <div class="row flex flex-center" style="flex-direction: column">
+  <q-page class="corpo flex flex-center" style="flex-direction: column;">
       <!--<div class="col text-center q-mt-xl">
         <img src="../assets/logoazul.png" alt="" />
       </div>-->
-      <div class="col q-mt-sm">
         <q-carousel
-          class="rounded-borders q-ma-md"
+          class="rounded-borders"
           v-model="slide"
           animated
-          style="background-color: transparent; min-height: 640px"
+          style="background-color: transparent; height: 100vh;"
         >
           <q-carousel-slide :name="1">
             <q-card
               flat
-              class="q-pa-md"
+              class="q-pa-sm"
               style="
                 min-height: 590px;
                 border-radius: 30px;
                 background-color: transparent;
+                margin-top: 8em;
               "
             >
               <q-card-section
@@ -46,7 +45,7 @@
                   >{{ msgVazio }}</span
                 >
               </q-card-section>
-              <q-card-actions align="around" style="margin-top: 14em">
+              <q-card-actions align="around" style="margin-top: 18em">
                 <q-btn
                   label="Sair"
                   size="1em"
@@ -85,6 +84,7 @@
                 min-height: 590px;
                 border-radius: 30px;
                 background-color: transparent;
+                margin-top: 8em;
               "
             >
               <q-card-section
@@ -158,6 +158,7 @@
                 min-height: 590px;
                 border-radius: 30px;
                 background-color: transparent;
+                margin-top: 8em;
               "
             >
               <q-card-section
@@ -210,7 +211,7 @@
                 >
                 </q-select>
               </q-card-section>
-              <q-card-actions align="around" style="margin-top: 4em">
+              <q-card-actions align="around" style="margin-top: 6em">
                 <q-btn
                   label="Voltar"
                   size="1em"
@@ -327,7 +328,7 @@
                 >
                 </q-input>
               </q-card-section>
-              <q-card-actions align="around">
+              <q-card-actions align="around" style="margin-top: 6em">
                 <q-btn
                   label="Voltar"
                   size="1em"
@@ -362,7 +363,7 @@
             <q-card
               class="col-12 q-pa-xl q-mt-xl"
               flat
-              style="background-color: transparent; width: 23em"
+              style="background-color: transparent; width: 23em;margin-top: 10em;"
             >
               <q-card-section
                 class="text-h6 text-center"
@@ -378,7 +379,7 @@
                 Você receberá um e-mail para a conclusão da abertura da sua
                 conta
               </q-card-section>
-              <q-card-actions align="center">
+              <q-card-actions align="center" style="margin-top: 8em;">
                 <q-btn
                   label="Sair"
                   size="1em"
@@ -413,8 +414,6 @@
             </q-card>
           </q-carousel-slide>
         </q-carousel>
-      </div>
-    </div>
   </q-page>
 </template>
 

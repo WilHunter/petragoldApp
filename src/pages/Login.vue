@@ -21,6 +21,7 @@
           rounded
           :input-style="{ color: '#b3b3b3',marginTop: '.5em' }"
           mask="##.###.###/####-##"
+          unmasked-value
           filled>
           <template v-slot:label>
             <div style="color: #a89968;font-weight: 600;">CNPJ</div>

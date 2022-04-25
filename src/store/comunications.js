@@ -59,9 +59,19 @@ const actions = {
     },
     // Login do Usuario
     async login({commit}, dados){
-      console.log(dados)
+      console.log(JSON.stringify(dados))
       try {
-        const res = await fetch(`https://petragoldbankingappapi.azurewebsites.net/api/index.html?url=/api/specification.json#/Auth/Auth_Login/${dados}.json`)
+        const res = await fetch(`https://petragoldbankingappapi.azurewebsites.net/api/Auth/Login`,
+
+        {
+            method: 'POST',
+            mode: `no-cors`,
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: dados
+        })
+        //03707952000138 - SenhaForte@22"
         console.log(res.json())
       } catch (error) {
 

@@ -5,7 +5,6 @@
         <img src="../assets/logoazul.png" alt="" />
       </div>-->
     </div>
-    <div class="row flex flex-center">
       <q-carousel
         class="rounded-borders"
         v-model="slide"
@@ -40,7 +39,7 @@
                 >{{ msgVazio }}</span
               >
             </q-card-section>
-            <q-card-actions align="center">
+            <q-card-actions align="center" style="margin-top:8em">
               <q-btn
                 label="Enviar"
                 size="1em"
@@ -71,7 +70,7 @@
             <q-card-section class="text-center q-mb-sm" style="color: #75787b">
               Sua senha de recuperação foi enviada para o e-mail pXXXX@gmail.com
             </q-card-section>
-            <q-card-actions align="center">
+            <q-card-actions align="center" style="margin-top:8em">
               <q-btn
                 label="Sair"
                 size="1em"
@@ -92,7 +91,6 @@
           </q-card>
         </q-carousel-slide>
       </q-carousel>
-    </div>
   </q-page>
 </template>
 
