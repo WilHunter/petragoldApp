@@ -39,7 +39,7 @@
                 >{{ msgVazio }}</span
               >
             </q-card-section>
-            <q-card-actions align="center" style="margin-top:8em">
+            <q-card-actions align="center" style="margin-top:6em">
               <q-btn
                 label="Enviar"
                 size="1em"
@@ -60,17 +60,17 @@
         </q-carousel-slide>
         <q-carousel-slide :name="2">
           <q-card
-            class="col-12 q-pa-xl"
+            class="col-12 q-pa-sm"
             flat
             style="background-color: transparent; width: 23em"
           >
             <q-card-section class="text-h6 text-center" style="color: #75787b">
-              Feito!
+              <img src="../assets/checkmark.png" alt="">
             </q-card-section>
             <q-card-section class="text-center q-mb-sm" style="color: #75787b">
-              Sua senha de recuperação foi enviada para o e-mail pXXXX@gmail.com
+              Sua senha de recuperação foi enviada para o e-mail <b>pXXXX@gmail.com</b>
             </q-card-section>
-            <q-card-actions align="center" style="margin-top:8em">
+            <q-card-actions align="center" style="margin-top:4em">
               <q-btn
                 label="Sair"
                 size="1em"

@@ -369,17 +369,17 @@
                 class="text-h6 text-center"
                 style="color: #75787b; margin-top: -1em"
               >
-                Feito!
+                <img src="../assets/checkmark.png" alt="">
               </q-card-section>
               <q-card-section
                 class="text-center"
                 style="color: #75787b; margin-top: -1em"
               >
                 Cadastro realizado com sucesso. <br />
-                Você receberá um e-mail para a conclusão da abertura da sua
+                Você receberá um e-mail em <b>pXXXX@gmail.com</b> para a conclusão da abertura da sua
                 conta
               </q-card-section>
-              <q-card-actions align="center" style="margin-top: 8em;">
+              <q-card-actions align="center" style="margin-top: 4em;">
                 <q-btn
                   label="Sair"
                   size="1em"

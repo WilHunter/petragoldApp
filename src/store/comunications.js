@@ -2,12 +2,12 @@ const state = {
     corretores: [],
     tasks: [],
     // variável corretor assumirá o corretor filtrado
-    corretor: {},
+    user: {},
     upCorretor: {}
 };
 const mutations = {
-    setCorretor(state, payload) {
-        state.corretores.push(payload)
+    setUser(state, payload) {
+        state.user = payload
     },
     setImagem(state, payload) {
         state.imagens = (payload)
@@ -59,20 +59,29 @@ const actions = {
     },
     // Login do Usuario
     async login({commit}, dados){
-      console.log(JSON.stringify(dados))
       try {
         const res = await fetch(`https://petragoldbankingappapi.azurewebsites.net/api/Auth/Login`,
 
         {
             method: 'POST',
-            mode: `no-cors`,
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: dados
+            body: JSON.stringify(dados)
         })
         //03707952000138 - SenhaForte@22"
-        console.log(res.json())
+        const db = await res.json()
+        if(db.status == 200){
+        commit(`setUser`, db)
+        console.log(state.user)
+        }
+        if(db.status == 400){
+          const erro = []
+          for(let item in db.errors){
+            console.log(item)
+          }
+          console.log(db.errors)
+        }
       } catch (error) {
 
       }
