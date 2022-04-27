@@ -1,25 +1,82 @@
 <template>
-  <q-header elevated style="background-color: #002455">
-    <q-toolbar>
-      <q-toolbar-title style="width:100%">
-        <q-btn flat to="Index">
-          <img
-            class="q-pa-md"
-            src="../assets/logodourado.png"
-            alt=" Logo PetraGold"
-            style="width: 15%"
-          />
-        </q-btn>
-      </q-toolbar-title>
-    </q-toolbar>
-  </q-header>
+<q-card flat bordered class="corpo">
+    <q-card-section>
+        <div class="row flex flex-center">
+            <div class="col-3 q-py-md q-pl-sm q-ml-md">
+                <img src="../assets/dourado.png" alt=" Logo PetraGold" style="width: 70%" />
+            </div>
+            <div class="col text-left text-white" style="font-size:1.2em">
+                Olá, <br />
+                <b>Luiza</b>
+            </div>
+            <div class="col-1 text-right">
+                <q-btn icon="settings" dense flat style="color: rgb(255 250 238)"></q-btn>
+            </div>
+        </div>
+    </q-card-section>
+    <q-card-section horizontal class="text-left text-white q-pl-xl" style="font-size:1em;margin-top:-1.5em; margin-bottom:8em">
+        <q-card-section>
+          SALDO DISPONÍVEL <br>
+        <b>R$</b> <b style="font-size:2em;margin-left:.1em">9.350,00</b>
+        </q-card-section>
+        <q-card-section>
+          <q-btn icon="visibility_off" dense flat style="color: rgb(255 250 238);margin-top:1.8em  "></q-btn>
+        </q-card-section>
+    </q-card-section>
+</q-card>
+<q-carousel v-model="slide" transition-prev="slide-right" transition-next="slide-left" swipeable animated class="bg-transparent" style="height:fit-content; margin-top:-6em">
+    <q-carousel-slide :name="1" class="column no-wrap">
+        <div class="row fit justify-center items-center q-col-gutter no-wrap">
+            <q-card bordered style="min-width: 7em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
+                <q-card-section>
+                    <q-icon class="rounded-borders" name="compare_arrows" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
+                </q-card-section>
+                <q-card-section class="text-grey-9" style="font-weight: 500">
+                    Transferir
+                </q-card-section>
+            </q-card>
+            <q-card bordered style="min-width: 7em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
+                <q-card-section>
+                    <q-icon class="rounded-borders" name="pix" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
+                </q-card-section>
+                <q-card-section class="text-grey-9" style="font-weight: 500">
+                    PIX
+                </q-card-section>
+            </q-card>
+            <q-card bordered style="min-width: 7em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;">
+                <q-card-section >
+                    <q-icon class="rounded-borders" name="account_balance_wallet" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
+                </q-card-section>
+                <q-card-section class="text-grey-9" style="font-weight: 500">
+                    Extrato
+                </q-card-section>
+            </q-card>
+        </div>
+    </q-carousel-slide>
+</q-carousel>
 </template>
 
 <script>
+import {
+    ref
+} from 'vue'
 export default {
-  name: "Topo",
-  setup() {
-    return {};
-  },
+    name: "Topo",
+    setup() {
+        return {
+            slide: ref(1)
+        };
+    },
 };
 </script>
+
+<style scoped>
+.corpo {
+    background-image: url("../assets/topo.png");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    background-color: rgb(255 250 238);
+    margin: 0 0 auto 0;
+    padding: 0!important;
+}
+</style>

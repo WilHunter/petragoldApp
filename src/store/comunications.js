@@ -3,11 +3,15 @@ const state = {
     tasks: [],
     // variável corretor assumirá o corretor filtrado
     user: {},
+    msgErrors: '',
     upCorretor: {}
 };
 const mutations = {
     setUser(state, payload) {
         state.user = payload
+    },
+    setMsgErros(state, payload) {
+      state.msgErrors = payload
     },
     setImagem(state, payload) {
         state.imagens = (payload)
@@ -70,20 +74,40 @@ const actions = {
             body: JSON.stringify(dados)
         })
         //03707952000138 - SenhaForte@22"
+        const cnpj = dados.user
         const db = await res.json()
-        if(db.status == 200){
+        if(res.status == 200){
+        actions.getBalance(cnpj)
         commit(`setUser`, db)
-        console.log(state.user)
+        this.$router.push(`Index`)
         }
-        if(db.status == 400){
-          const erro = []
-          for(let item in db.errors){
-            console.log(item)
-          }
-          console.log(db.errors)
+        if(res.status == 400){
+          commit('setMsgErros',db.errors.InvalidLogin[0])
         }
       } catch (error) {
-
+          console.log(error)
+      }
+    },
+    // Busca Saldo
+    async getBalance({commit},dados){
+      console.log('balance')
+      try {
+        const res = await fetch(`https://petragoldbankingappapi.azurewebsites.net/api/CheckingAccount/Balance`,
+        {
+          method: 'GET',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: {
+            cnpj: dados
+          }
+        }
+        )
+        const db = await res.json()
+        console.log(db)
+      }
+      catch(error){
+        console.log(error)
       }
     }
 };

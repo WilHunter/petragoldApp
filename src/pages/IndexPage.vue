@@ -1,17 +1,27 @@
 <template>
-  <q-page class="flex flex-center">
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
+    <q-page class="corpo">
+      <topo/>
+      <vantagens />
+      <servicos />
+      <foot/>
+    </q-page>
 </template>
 
 <script>
+import Foot from 'src/components/Foot.vue'
+import Servicos from 'src/components/Servicos.vue'
+import Topo from 'src/components/Topo.vue'
+import Vantagens from 'src/components/Vantagens.vue'
 import { defineComponent } from 'vue'
 
 export default defineComponent({
+  components: { Topo, Vantagens, Servicos, Foot },
   name: 'IndexPage'
 })
 </script>
+
+<style scoped>
+.corpo{
+  background-color: rgb(255 250 238);
+}
+</style>

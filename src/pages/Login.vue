@@ -12,6 +12,9 @@
       class="row flex flex-center"
       style="flex-direction: column; width: 100%"
     >
+      <div class="col text-center q-pa-md" style="color: #a89968">
+        {{msgErrors}}
+      </div>
       <div class="col text-center" style="min-width: 16em">
         <q-input
           v-model="CNPJ"
@@ -89,7 +92,7 @@
 
 <script>
 import { ref } from "vue";
-import { mapActions } from 'vuex';
+import { mapActions, mapState } from 'vuex';
 export default {
   name: "Login",
   setup() {
@@ -98,6 +101,9 @@ export default {
       password: ref(""),
       isPwd: ref(true),
     };
+  },
+  computed:{
+    ...mapState('comunications',['msgErrors'])
   },
   methods:{
     ...mapActions(`comunications`,[`login`]),
@@ -116,6 +122,7 @@ export default {
   background-image: url("../assets/fundo.png");
   background-repeat: no-repeat;
   background-color: black;
+  background-size: 100% 100%;
   font-family: Roboto;
 }
 </style>
