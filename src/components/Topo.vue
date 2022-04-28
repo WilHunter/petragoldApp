@@ -27,7 +27,7 @@
 <q-carousel v-model="slide" transition-prev="slide-right" transition-next="slide-left" swipeable animated class="bg-transparent" style="height:fit-content; margin-top:-6em">
     <q-carousel-slide :name="1" class="column no-wrap">
         <div class="row fit justify-center items-center q-col-gutter no-wrap">
-            <q-card bordered style="min-width: 7em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
+            <q-card class="shadow-5" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
                 <q-card-section>
                     <q-icon class="rounded-borders" name="compare_arrows" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
                 </q-card-section>
@@ -35,7 +35,7 @@
                     Transferir
                 </q-card-section>
             </q-card>
-            <q-card bordered style="min-width: 7em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
+            <q-card class="shadow-5" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
                 <q-card-section>
                     <q-icon class="rounded-borders" name="pix" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
                 </q-card-section>
@@ -43,12 +43,40 @@
                     PIX
                 </q-card-section>
             </q-card>
-            <q-card bordered style="min-width: 7em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;">
+            <q-card class="shadow-5" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;">
                 <q-card-section >
                     <q-icon class="rounded-borders" name="account_balance_wallet" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
                 </q-card-section>
                 <q-card-section class="text-grey-9" style="font-weight: 500">
                     Extrato
+                </q-card-section>
+            </q-card>
+        </div>
+    </q-carousel-slide>
+    <q-carousel-slide :name="2" class="column no-wrap">
+        <div class="row fit justify-center items-center q-col-gutter no-wrap">
+            <q-card class="shadow-5" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
+                <q-card-section>
+                    <q-icon class="rounded-borders" name="receipt_long" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
+                </q-card-section>
+                <q-card-section class="text-grey-9" style="font-weight: 500;margin-left:-.6em">
+                    Comprovantes
+                </q-card-section>
+            </q-card>
+            <q-card class="shadow-5" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
+                <q-card-section>
+                    <q-icon class="rounded-borders" name="price_check" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
+                </q-card-section>
+                <q-card-section class="text-grey-9" style="font-weight: 500;margin-left:-.6em">
+                    Pagamentos
+                </q-card-section>
+            </q-card>
+            <q-card class="shadow-5" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;">
+                <q-card-section >
+                    <q-icon class="rounded-borders" name="text_snippet" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
+                </q-card-section>
+                <q-card-section class="text-grey-9" style="font-weight: 500">
+                    Gerar <br> Boletos
                 </q-card-section>
             </q-card>
         </div>

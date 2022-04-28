@@ -11,6 +11,7 @@
       autoplay=""
       swipeable
       animated
+      infinite
       padding
       height="150px"
       class="rounded-borders">
