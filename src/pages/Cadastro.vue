@@ -71,7 +71,7 @@
                     background-color: #001f40;
                     min-width: 8em;
                   "
-                  @click="validaCNPJ()"
+                  @click="validaCNPJ(CNPJ)"
                 ></q-btn>
               </q-card-actions>
             </q-card>
@@ -284,6 +284,11 @@
                   class="q-mt-md"
                 >
                 </q-input>
+                <span
+                  v-if="msgCPF"
+                  style="color: #001f40; font-weight: bold; margin-top: 0.5em"
+                  >{{ msgCPF }}</span
+                >
               </q-card-section>
               <q-card-section>
                 <span class="q-mt-md" style="color: #75787b; font-weight: 400"
@@ -354,7 +359,7 @@
                     background-color: #001f40;
                     min-width: 8em;
                   "
-                  @click="slide = 5"
+                  @click="validaCPF(repCPF)"
                 ></q-btn>
               </q-card-actions>
             </q-card>
@@ -470,6 +475,7 @@ export default {
       },
       repLegal: ref(""),
       repCPF: ref(""),
+      msgCPF: ref(""),
       repEmail: ref(""),
       contatoEmail: ref(""),
       repCel: ref(""),
@@ -478,12 +484,68 @@ export default {
     };
   },
   methods: {
-    validaCNPJ() {
-      if (!this.CNPJ) {
-        this.msgVazio = "Favor informar CNPJ!";
-      } else {
-        (this.msgVazio = ""), (this.slide = 2);
+    validaCNPJ(cnpj) {
+      cnpj = cnpj.replace(/[^\d]+/g, "");
+      if (cnpj == "") return (this.msgVazio = "Favor informar CNPJ!");
+      if (cnpj.length != 14) return (this.msgVazio = "CNPJ Incompleto");
+      // Elimina CNPJs invalidos conhecidos
+      if (
+        cnpj == "00000000000000" ||
+        cnpj == "11111111111111" ||
+        cnpj == "22222222222222" ||
+        cnpj == "33333333333333" ||
+        cnpj == "44444444444444" ||
+        cnpj == "55555555555555" ||
+        cnpj == "66666666666666" ||
+        cnpj == "77777777777777" ||
+        cnpj == "88888888888888" ||
+        cnpj == "99999999999999"
+      )
+        return (this.msgVazio = "CNPJ Incorreto!");
+      // Valida DVs
+      var tamanho = cnpj.length - 2;
+      var numeros = cnpj.substring(0, tamanho);
+      var digitos = cnpj.substring(tamanho);
+      var soma = 0;
+      var pos = tamanho - 7;
+      for (let i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2) pos = 9;
       }
+      var resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+      if (resultado != digitos.charAt(0)) return (this.msgVazio = "CNPJ Incorreto!");
+      var tamanho = tamanho + 1;
+      var numeros = cnpj.substring(0, tamanho);
+      var soma = 0;
+      var pos = tamanho - 7;
+      for (let i = tamanho; i >= 1; i--) {
+        soma += numeros.charAt(tamanho - i) * pos--;
+        if (pos < 2) pos = 9;
+      }
+      resultado = soma % 11 < 2 ? 0 : 11 - (soma % 11);
+      if (resultado != digitos.charAt(1)) return (this.msgVazio = "CNPJ Incorreto!");
+      return (this.msgVazio = ""), this.slide = 2;
+    },
+    validaCPF(CPF) {
+      CPF = CPF.replace(/[^\d]+/g, "");
+      var Soma;
+      var Resto;
+      Soma = 0;
+      if (CPF == "00000000000") return (this.msgCPF = "CPF Inválido");
+      for (let i = 1; i <= 9; i++)
+        Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (11 - i);
+      Resto = (Soma * 10) % 11;
+      if (Resto == 10 || Resto == 11) Resto = 0;
+      if (Resto != parseInt(CPF.substring(9, 10)))
+        return (this.msgCPF = "CPF Inválido");
+      Soma = 0;
+      for (let i = 1; i <= 10; i++)
+        Soma = Soma + parseInt(CPF.substring(i - 1, i)) * (12 - i);
+      Resto = (Soma * 10) % 11;
+      if (Resto == 10 || Resto == 11) Resto = 0;
+      if (Resto != parseInt(CPF.substring(10, 11)))
+        return (this.msgCPF = "CPF Inválido");
+      return (this.msgCPF = "", this.slide = 5);
     },
   },
 };

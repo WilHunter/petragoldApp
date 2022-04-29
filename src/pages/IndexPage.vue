@@ -1,8 +1,8 @@
 <template>
     <q-page class="corpo">
       <topo/>
-      <movimentacoes/>
       <vantagens />
+      <movimentacoes/>
       <servicos />
       <foot/>
     </q-page>
