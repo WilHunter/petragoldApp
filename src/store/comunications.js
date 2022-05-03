@@ -61,6 +61,31 @@ const actions = {
             console.log(error)
         }
     },
+    // Cadastrar Usuário
+    async register({commit}, dados){
+      console.log(JSON.stringify(dados))
+      try {
+        const res = await fetch(`https://petragoldbankingappapi.azurewebsites.net/api/Auth/register`,
+
+        {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(dados)
+        })
+        //03707952000138 - SenhaForte@22"
+        const db = await res.json()
+        if(res.status == 200){
+          console.log(db)
+        }
+        if(res.status == 400){
+          console.log(db.errors)
+        }
+      } catch (error) {
+          console.log(error)
+      }
+    },
     // Login do Usuario
     async login({commit}, dados){
       try {
