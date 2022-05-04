@@ -5,16 +5,16 @@
             <div class="col-3 q-py-md q-pl-sm q-ml-md">
                 <img src="../assets/dourado.png" alt=" Logo PetraGold" style="width: 70%" />
             </div>
-            <div class="col text-left text-white" style="font-size:1.2em">
+            <div class="col text-left text-white animate__animated animate__fadeIn" style="font-size:1.2em">
                 Olá, <br />
                 <b>Luiza</b>
             </div>
-            <div class="col-1 text-right">
-                <q-btn icon="settings" dense flat style="color: rgb(255 250 238)"></q-btn>
-            </div>
+            <!--<div class="col-1 text-right">
+               <q-btn icon="settings" dense flat style="color: rgb(255 250 238)"></q-btn>
+            </div> -->
         </div>
     </q-card-section>
-    <q-card-section horizontal class="text-left text-white q-pl-xl" style="font-size:1em;margin-top:-1.5em; margin-bottom:8em">
+    <q-card-section horizontal class="text-left text-white q-pl-xl animate__animated animate__fadeIn" style="font-size:1em;margin-top:-1.5em; margin-bottom:8em">
         <q-card-section class="q-mt-md">
             SALDO DISPONÍVEL <br>
             <q-input disable v-model="saldo" filled :type="isPwd ? 'password' : 'text'" :input-style="{ color: 'white', fontWeight: 'bolder' }">
@@ -31,7 +31,7 @@
     <q-carousel-slide :name="1" class="column no-wrap">
         <div class="row fit justify-center items-center q-col-gutter no-wrap">
             <router-link style="text-decoration: none" to="Transferir">
-                <q-card class="shadow-5" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
+                <q-card class="shadow-5 animate__animated animate__fadeIn" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
                     <q-card-section>
                         <q-icon class="rounded-borders" name="compare_arrows" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
                     </q-card-section>
@@ -41,7 +41,7 @@
                 </q-card>
             </router-link>
             <router-link style="text-decoration: none" to="Transferir">
-                <q-card class="shadow-5" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
+                <q-card class="shadow-5 animate__animated animate__fadeIn" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
                     <q-card-section>
                         <q-icon class="rounded-borders" name="pix" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
                     </q-card-section>
@@ -51,7 +51,7 @@
                 </q-card>
             </router-link>
             <router-link style="text-decoration: none" to="Transferir">
-                <q-card class="shadow-5" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;">
+                <q-card class="shadow-5 animate__animated animate__fadeIn" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;">
                     <q-card-section>
                         <q-icon class="rounded-borders" name="account_balance_wallet" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
                     </q-card-section>
@@ -116,6 +116,12 @@ export default {
 </script>
 
 <style scoped>
+*{
+    animation-duration: 1s;
+  }
+  .botao{
+    animation-delay: .2s;
+  }
 .corpo {
     background-image: url("../assets/topo.png");
     background-repeat: no-repeat;

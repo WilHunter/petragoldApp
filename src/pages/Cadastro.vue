@@ -196,7 +196,7 @@
                 </q-card-section>
                 <q-card-section class="text-center animate__animated animate__fadeInDown" style="color: #75787b; margin-top: -1em">
                     Cadastro realizado com sucesso. <br />
-                    Você receberá um e-mail em <b>pXXXX@gmail.com</b> para a conclusão da abertura da sua
+                    Você receberá um e-mail em <b>{{repEmail}}</b> para a conclusão da abertura da sua
                     conta
                 </q-card-section>
                 <q-card-actions align="center" style="margin-top: 4em;">
@@ -360,7 +360,7 @@ export default {
             if (Resto == 10 || Resto == 11) Resto = 0;
             if (Resto != parseInt(CPF.substring(10, 11)))
                 return (this.msgCPF = "CPF Inválido");
-            return (this.msgCPF = "", this.slide = 5);
+            return (this.msgCPF = "");
         },
         validaPass(){
           const letrasMaiusculas = /[A-Z]/;
@@ -403,7 +403,7 @@ export default {
               tradingName: this.nomeFantasia,
               companyFoundingDate: this.dataAbertura,
               companyType: this.tpEmpresa,
-              cnaeId: '1',
+              cnaeId: 1,
               //cnaeId: this.CNAE,
               representativeName: this.repLegal ,
               representativeCpf: this.repCPF,

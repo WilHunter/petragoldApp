@@ -1,8 +1,8 @@
 <template>
-  <div class="q-mt-xl q-mb-sm">
+  <div class="q-mt-xl q-mb-sm animate__animated animate__fadeIn">
       <b class="text-left text-grey-8 q-pa-md" style="font-size:1.1em;">Últimas Transações</b>
   </div>
-  <div class="q-mt-xl q-mb-sm">
+  <div class="q-mt-xl q-mb-sm animate__animated animate__fadeIn">
     <b class="text-left text-grey-6 q-pa-md" style="font-size:1em;"> HOJE</b>
   </div>
   <div class="row flex flex-center q-pl-md q-mb-sm">
@@ -52,6 +52,8 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+*{
+    animation-duration: 1s;
+  }
 </style>

@@ -75,9 +75,9 @@ const actions = {
             body: JSON.stringify(dados)
         })
         //03707952000138 - SenhaForte@22"
-        const db = await res.json()
-        if(res.status == 200){
-          console.log(db)
+        const db = res
+        if(res.status == 204){
+          console.log(res)
         }
         if(res.status == 400){
           console.log(db.errors)
@@ -98,7 +98,6 @@ const actions = {
             },
             body: JSON.stringify(dados)
         })
-        //03707952000138 - SenhaForte@22"
         const cnpj = dados.user
         const db = await res.json()
         if(res.status == 200){
@@ -111,6 +110,27 @@ const actions = {
         }
       } catch (error) {
           console.log(error)
+      }
+    },
+    // Esqueci a senha
+    async forgotPassToken({commit},dados){
+      console.log(JSON.stringify(dados))
+      try {
+        const res = await fetch(`https://petragoldbankingappapi.azurewebsites.net/api/Auth/ForgotPasswordToken`,
+        {
+          method: 'POST',
+          headers: {
+              'Content-Type': 'application/json'
+          },
+          body: {
+            cnpj: JSON.stringify(dados)
+          }
+        }
+        )
+        const db = await res.json()
+        console.log(db)
+      } catch (error) {
+        console.log(error)
       }
     },
     // Busca Saldo

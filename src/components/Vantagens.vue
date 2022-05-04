@@ -1,8 +1,8 @@
 <template>
-<div class="q-mt-xl q-mb-sm">
+<div class="q-mt-xl q-mb-sm animate__animated animate__fadeIn">
     <b class="text-left text-grey-7 q-pa-md" style="font-size:1.2em;">VANTAGENS</b>
 </div>
-<div class="q-pa-md">
+<div class="q-pa-md animate__animated animate__fadeIn">
     <q-carousel
       v-model="slide"
       vertical
@@ -40,6 +40,9 @@ export default {
 }
 </script>
 
-<style>
-
+<style scoped>
+*{
+    animation-duration: 1s;
+    animation-delay: .5s;
+  }
 </style>
