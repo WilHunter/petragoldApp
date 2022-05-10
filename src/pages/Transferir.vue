@@ -99,8 +99,28 @@
                     </q-dialog>
                 </q-card-section>
                 <q-card-section class="q-mt-md">
-                    <q-table :rows="rows" :columns="columns" row-key="name" color="grey-9" style="background-color:#FEFAEE" flat selection="multiple" v-model:selected="selected" :filter="filter" no-data-label="Nenhum contato cadastrado" hide-header>
-                    </q-table>
+                  <div class="q-mb-md" style="font-weight:bold">Favoritos</div>
+                  <q-list>
+                    <q-item clickable v-ripple v-for="(item,i) in favoritos" :key="i">
+                      <q-item-section>
+                        <q-item-label style="font-weight:bold">
+                          <q-icon name="star"></q-icon>
+                          {{item.nome}}
+                        </q-item-label>
+                      </q-item-section>
+                      <q-item-section class="text-right">
+                        <q-icon name="arrow_forward_ios"></q-icon>
+                      </q-item-section>
+                      <!-- <q-item-section>
+                        <q-item-label >
+                          <q-icon name="pix"/> PIX
+                          <div class="text-caption">
+                            315.023.418-24
+                          </div>
+                        </q-item-label>
+                      </q-item-section> -->
+                    </q-item>
+                  </q-list>
                 </q-card-section>
                 <q-card-actions style="margin-top:3em">
                     <q-btn class="full-width" label="próximo" style="background-color:#091F40;color:whitesmoke" @click="slide = 2"></q-btn>
@@ -212,10 +232,14 @@ export default {
                 })
             },
             filter: ref(''),
-            selected: ref([]),
             slide: ref(1),
             contatoTransf: ref("José Ambrósio "),
-            valor: ref("")
+            valor: ref(""),
+            favoritos: ref([
+              {nome: 'Maurício Villares'},
+              {nome: 'Sandra Medeiros'},
+              {nome: 'Compras Electrolux'}
+                ])
         }
     }
 }
