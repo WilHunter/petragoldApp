@@ -16,7 +16,7 @@
                 </q-card-section>
                 <q-card-section style="margin-top: 6em">
                     <span class="q-mt-md animate__animated animate__fadeInDown" style="color: #75787b; font-weight: 400">Informe seu CNPJ</span>
-                    <q-input v-model="CNPJ" dense filled :input-style="{ color: '#001f40', marginTop: '.5em' }" mask="##.###.###/####-##" class="q-mt-md animate__animated animate__fadeInDown">
+                    <q-input v-model="CNPJ" dense filled :input-style="{ color: '#001f40', marginTop: '.5em' }" mask="##.###.###/####-##" unmasked-value class="q-mt-md animate__animated animate__fadeInDown">
                     </q-input>
                     <span v-if="msgVazio" style="color: #001f40; font-weight: bold; margin-top: 0.5em">{{ msgVazio }}</span>
                 </q-card-section>

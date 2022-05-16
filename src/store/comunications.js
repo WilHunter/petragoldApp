@@ -88,6 +88,7 @@ const actions = {
     },
     // Login do Usuario
     async login({commit}, dados){
+      console.log(dados)
       try {
         const res = await fetch(`https://petragoldbankingappapi.azurewebsites.net/api/Auth/Login`,
 

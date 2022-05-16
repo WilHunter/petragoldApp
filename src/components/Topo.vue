@@ -31,7 +31,7 @@
     <q-carousel-slide :name="1" class="column no-wrap">
         <div class="row fit justify-center items-center q-col-gutter no-wrap">
             <router-link style="text-decoration: none" to="Transferir">
-                <q-card class="shadow-5 animate__animated animate__fadeIn" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
+                <q-card class=" animate__animated animate__fadeIn" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
                     <q-card-section>
                         <q-icon class="rounded-borders" name="compare_arrows" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
                     </q-card-section>
@@ -41,7 +41,7 @@
                 </q-card>
             </router-link>
             <router-link style="text-decoration: none" to="Transferir">
-                <q-card class="shadow-5 animate__animated animate__fadeIn" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
+                <q-card class=" animate__animated animate__fadeIn" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;margin-right:2em">
                     <q-card-section>
                         <q-icon class="rounded-borders" name="pix" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
                     </q-card-section>
@@ -51,7 +51,7 @@
                 </q-card>
             </router-link>
             <router-link style="text-decoration: none" to="Transferir">
-                <q-card class="shadow-5 animate__animated animate__fadeIn" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;">
+                <q-card class="animate__animated animate__fadeIn" bordered style="min-width: 7em;min-height: 11em;border: solid 1px #A89968;background-color: rgb(255 250 238);border-radius: 10px;">
                     <q-card-section>
                         <q-icon class="rounded-borders" name="account_balance_wallet" size="2.5em" style="background-color:rgb(255 250 238);color: #001F40;"></q-icon>
                     </q-card-section>
