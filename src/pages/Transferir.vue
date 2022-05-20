@@ -21,7 +21,7 @@
             <q-card flat style="background-color:#FEFAEE;">
                 <q-card-section class="text-grey-9" style="font-weight:bolder; font-size:1.2em">
                     De: <br>
-                    Magazine Luiza S/A
+                    {{cliente}}
                 </q-card-section>
                 <q-card-section class="text-grey-9" style="font-weight:bolder; font-size:1.2em">
                     Para: <br>
@@ -71,7 +71,7 @@
                                     <span>
                                         Banco
                                     </span>
-                                    <q-select dense hide-selected v-model="bancoContato" use-input @filter="filterFn" color="grey-9" label-color="grey-9" style="margin-top:-.5em" :options="bancos" />
+                                    <q-select dense  v-model="bancoContato" use-input @filter="filterFn" color="grey-9" label-color="grey-9" style="margin-top:-.5em" :options="bancos" />
                                 </div>
                             </q-card-section>
                             <q-card-section style="margin-top:-1em">
@@ -88,12 +88,30 @@
                                     <span>
                                         Conta
                                     </span>
-                                    <q-input dense v-model="contaContato" color="grey-9" label-color="grey-9" style="margin-top:-.5em" mask="AAAAAAAAA-A" reverse-fill-mask>
+                                    <q-input dense v-model="contaContato" color="grey-9" label-color="grey-9" style="margin-top:-.5em" mask="NNNNNNN-N" reverse-fill-mask>
                                     </q-input>
                                 </div>
                             </q-card-section>
+                            <q-card-section class="text-grey-9">
+                              <q-checkbox
+                                  v-model="guardarContato"
+                                  checked-icon="star"
+                                  unchecked-icon="star_border"
+                                  indeterminate-icon="help"
+                                  color="grey-9"
+                              />
+                              Salvar contato?
+                            </q-card-section>
                             <q-card-actions>
-                                <q-btn class="full-width" label="próximo" style="background-color:#091F40;color:whitesmoke" @click="dialogContato = false"></q-btn>
+                                <q-btn
+                                    class="full-width"
+                                    label="próximo"
+                                    style="background-color:#091F40;color:whitesmoke"
+                                    @click="()=>{
+                                      salvarContato()
+                                      dialogContato = false
+                                    }">
+                                </q-btn>
                             </q-card-actions>
                         </q-card>
                     </q-dialog>
@@ -101,7 +119,7 @@
                 <q-card-section class="q-mt-md">
                   <div class="q-mb-md" style="font-weight:bold">Favoritos</div>
                   <q-list>
-                    <q-item clickable v-ripple v-for="(item,i) in favoritos" :key="i">
+                    <q-item clickable v-ripple v-for="(item,i) in contatosTransf" :key="i" @click="pessoaTransferencia(item)">
                       <q-item-section>
                         <q-item-label style="font-weight:bold">
                           <q-icon name="star"></q-icon>
@@ -123,7 +141,14 @@
                   </q-list>
                 </q-card-section>
                 <q-card-actions style="margin-top:3em">
-                    <q-btn class="full-width" label="próximo" style="background-color:#091F40;color:whitesmoke" @click="slide = 2"></q-btn>
+                    <q-btn
+                      class="full-width"
+                      label="próximo"
+                      style="background-color:#091F40;color:whitesmoke"
+                      @click="()=>{
+                        slide = 2
+                        }">
+                    </q-btn>
                 </q-card-actions>
             </q-card>
         </q-carousel-slide>
@@ -131,10 +156,10 @@
             <q-card flat style="background-color:#FEFAEE;">
                 <q-card-section class="text-grey-9" style="font-weight:bolder; font-size:1.2em">
                     Transferência para: <br> <br>
-                    {{contatoTransf}}
+                    {{pessoaTransf.nome}}
                 </q-card-section>
                 <q-card-section style="color: #5d6a7e;margin-top: -2em;s">
-                    Bco: Itaú AG: 4548 C/c: 213456-2
+                    Bco: {{pessoaTransf.banco}} AG: {{pessoaTransf.agencia}} C/c: {{pessoaTransf.conta}}
                 </q-card-section>
                 <q-card-section>
                     Valor
@@ -181,7 +206,7 @@
                 </q-card-section>
                 <q-card-section class="text-grey-9" style="font-weight:bolder; font-size:1.2em">
                     Para: <br> <br>
-                    {{contatoTransf}}
+                    {{contatoTransferencia}}
                 </q-card-section>
                 <q-card-section style="color: #5d6a7e;margin-top: -2em;s">
                     Bco: Itaú AG: 4548 C/c: 213456-2
@@ -203,6 +228,7 @@
 import {
     ref
 } from 'vue'
+import { mapActions, mapState } from 'vuex'
 const bancosOptions = ['Itau','Bradesco']
 export default {
     name: 'Transferir',
@@ -210,8 +236,10 @@ export default {
       const bancos = ref(bancosOptions)
         return {
             saldo: ref("9.350,00"),
+            cliente: ref("Magazine Luiza S/A"),
             contato: ref(""),
             dialogContato: ref(false),
+            nomeContato: ref(""),
             tpPessoa: ref("PF"),
             CPFContato: ref(""),
             CNPJContato: ref(""),
@@ -219,6 +247,8 @@ export default {
             agenciaContato: ref(""),
             contaContato: ref(""),
             bancos,
+            pessoaTransf: ref({}),
+            guardarContato: ref(false),
             filterFn(val, update) {
                 if (val === '') {
                     update(() => {
@@ -233,7 +263,7 @@ export default {
             },
             filter: ref(''),
             slide: ref(1),
-            contatoTransf: ref("José Ambrósio "),
+            contatoTransferencia: ref("José Ambrósio "),
             valor: ref(""),
             favoritos: ref([
               {nome: 'Maurício Villares'},
@@ -241,6 +271,28 @@ export default {
               {nome: 'Compras Electrolux'}
                 ])
         }
+    },
+    computed:{
+      ...mapState('comunications',['contatosTransf'])
+    },
+    methods:{
+      ...mapActions('comunications',['salvarContatoTransf']),
+      salvarContato(){
+        this.salvarContatoTransf(
+          {
+            nome: this.nomeContato,
+            CPF: this.CPFContato,
+            CNPJ: this.CNPJContato,
+            banco: this.bancoContato,
+            agencia: this.agenciaContato,
+            conta: this.contaContato,
+            salvarContato: this.guardarContato
+          }
+        )
+      },
+      pessoaTransferencia(dados){
+        this.pessoaTransf = dados
+      }
     }
 }
 </script>

@@ -4,7 +4,8 @@ const state = {
     // variável corretor assumirá o corretor filtrado
     user: {},
     msgErrors: '',
-    upCorretor: {}
+    upCorretor: {},
+    contatosTransf: []
 };
 const mutations = {
     setUser(state, payload) {
@@ -30,6 +31,9 @@ const mutations = {
     },
     updateStatusCorretor(state, payload) {
         state.upCorretor = state.corretores.find(item => item.id === payload.id)
+    },
+    setContatoTransf(state, payload){
+      state.contatosTransf.push(payload)
     }
 
 };
@@ -155,6 +159,10 @@ const actions = {
       catch(error){
         console.log(error)
       }
+    },
+    //Cadastrando contato transferência
+    salvarContatoTransf({commit}, dados){
+      commit('setContatoTransf', dados)
     }
 };
 const getters = {
