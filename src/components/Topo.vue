@@ -1,9 +1,9 @@
 <template>
-<q-card flat bordered class="corpo">
+<q-card flat class="corpo" style="height:25em">
     <q-card-section>
         <div class="row flex flex-center">
             <div class="col-3 q-py-md q-pl-sm q-ml-md">
-                <img src="../assets/dourado.png" alt=" Logo PetraGold" style="width: 70%" />
+                <img src="../assets/dourado.png" alt=" Logo PetraGold" style="width: 100%" />
             </div>
             <div class="col text-left text-white animate__animated animate__fadeIn" style="font-size:1.2em">
                 Olá, <br />

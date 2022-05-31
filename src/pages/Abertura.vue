@@ -13,16 +13,16 @@
       style="height:100%;background-color:transparent;"
     >
       <q-carousel-slide :name="1" style="padding:0" >
-        <img src="../assets/digital1.png" style="width:100%;">
+        <img src="../assets/1.png" style="width:100%;">
       </q-carousel-slide>
       <q-carousel-slide :name="2" style="padding:0">
-        <img src="../assets/digital2.png" style="width:100%">
+        <img src="../assets/2.png" style="width:100%">
       </q-carousel-slide>
       <q-carousel-slide :name="3" style="padding:0">
-        <img src="../assets/digital3.png" style="width:100%">
+        <img src="../assets/3.png" style="width:100%">
       </q-carousel-slide>
     </q-carousel>
-    <div class="row" style="margin: 1em auto 0em auto">
+    <div class="row" style="margin: 4em auto 0em auto">
       <div class="col text-center" style="border-right: solid 2px grey;">
         <q-btn  to="Cadastro" class="full-width" style="font-size:1.5em" flat color="grey-9" label="Abrir Conta" no-caps></q-btn>
       </div>

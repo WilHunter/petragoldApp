@@ -101,7 +101,8 @@ module.exports = configure(function (ctx) {
       plugins: [
         'QCarousel',
         'QSlideItem',
-        'QTable'
+        'QTable',
+        'Notify'
       ]
     },
 
